@@ -9,3 +9,4 @@ Tänne on tarkoitus tallentaa _Ohjelmistotekniikan_ kurssin __harjoitukset__
 
 [komentorivi.txt](https://github.com/ahelkala/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+paikallinen muutos
