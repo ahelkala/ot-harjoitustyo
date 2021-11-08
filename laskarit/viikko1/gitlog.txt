@@ -121,3 +121,5 @@ Date:   Mon Nov 8 03:33:35 2021 +0200
 
  tiedosto.txt | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
+
+epäsynkrooni editointi
