@@ -10,6 +10,8 @@ Voittaessaan pelin käyttäjä voi merkata nimensä kunniataulukkoon. Itse pelaa
 
 ## Käyttöliittymäluonnos
 
+<img src="https://github.com/ahelkala/ot-harjoitustyo/dokumentaatio/kuvat/kayttoliittymaluonnos.png" width="750">
+
 Sovelluksessa on kolme näkymää. Itse pelinäkymä, näkymä nimen tallentamista varten sekä kunniataulukko parhaille tuloksille. 
 
 ## Perusversion tarjoama toiminnallisuus
