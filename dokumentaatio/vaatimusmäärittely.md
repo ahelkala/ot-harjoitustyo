@@ -30,7 +30,7 @@ Sovelluksessa on kolme näkymää. Itse pelinäkymä, näkymä nimen tallentamis
 
 - käyttjälle näytetään parhaimpien tulosten kunniataulukko
 
-### Jatkokehitysideoita
+## Jatkokehitysideoita
 
 - käyttäjä voi määritellä miinojen määrän sekä peliruudukon koon
 - parhaimpien tulosten muistaminen eri peliruudukon kokojen sekä miinojen määrän perusteella tai vaihtoehtoisesti useampi vakioitu peliruudukko miinoineen
