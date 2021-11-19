@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def test(ctx):
-	ctx.run("coverag run --branch -m pytest"
+	ctx.run("coverage run --branch -m pytest")
 
 @task(test)
 def coverage_report(ctx):
