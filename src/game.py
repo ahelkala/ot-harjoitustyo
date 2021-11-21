@@ -1,4 +1,5 @@
 import pygame
+from gamegrid import GameGrid
 
 class Game:                 
     def __init__(self,game_area_size: int):
@@ -10,10 +11,8 @@ class Game:
         self.game_screen = pygame.display.set_mode((self.width, self.height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Miinaharava")
-        grid = GameGrid(self.row_count)     #testataan gridin luontia
+        grid = GameGrid(self.row_count, self.mine_count)     
         self.not_visited_block = pygame.transform.scale(pygame.image.load("assets/unexplored.png"), (self.block_size,self.block_size))
-
-        
 
     def loop(self):        
         while True:
@@ -28,17 +27,9 @@ class Game:
 
     def draw(self):
         self.game_screen.fill((0,0,0))
+        for i in range(self.row_count):
+            for j in range(self.row_count):
+                self.game_screen.blit(self.not_visited_block, (i*self.block_size, j*self.block_size + 90))
         pygame.display.flip()
-        self.game_screen.blit(self.not_visited_block, (50, 50))
-        pygame.display.flip()
 
 
-
-class GameGrid:
-    def __init__(self, size):
-        self.size = size
-        self.set_grid()
-
-    def set_grid(self):
-        self.grid = [[0]*self.size for _ in range(self.size)]
-        print(self.grid)
