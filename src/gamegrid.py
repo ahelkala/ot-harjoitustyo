@@ -3,7 +3,8 @@
 #
 import random
 
-class GameGrid:         #alustetaan peliruudukko
+
+class GameGrid:  # alustetaan peliruudukko
     def __init__(self, size, mines):
         self.size = size
         self.mine_count = mines
@@ -20,6 +21,6 @@ class GameGrid:         #alustetaan peliruudukko
                 self.grid[korkeus][leveys] = 10
                 i += 1
 
-    #Todo montako miinaa on ruutujen ympärillä
+    # Todo montako miinaa on ruutujen ympärillä
     def set_mine_neighbours(self):
         pass
