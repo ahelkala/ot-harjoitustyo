@@ -11,7 +11,8 @@ class Game:
         self.row_count = game_area_size
         self.mine_count = 6
         #varataan pieni tili tulevalle yläpalkille
-        self.width, self.height = self.block_size * self.row_count, self.block_size * self.row_count + 90
+        self.width, self.height = self.block_size * self.row_count, \
+            self.block_size * self.row_count + 90
         self.game_screen = pygame.display.set_mode((self.width, self.height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Miinaharava")

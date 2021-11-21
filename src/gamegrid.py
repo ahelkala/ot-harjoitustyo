@@ -20,5 +20,6 @@ class GameGrid:         #alustetaan peliruudukko
                 self.grid[korkeus][leveys] = 10
                 i += 1
 
-    def set_mine_neighbours(self):   #ToDo montako miinaa on ruutujen ympärillä
+    #Todo montako miinaa on ruutujen ympärillä
+    def set_mine_neighbours(self):
         pass
