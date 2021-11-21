@@ -1,6 +1,6 @@
-# Ohte harjoitustyö
+# Miinaharava
 
-Tänne on tarkoitus tallentaa _Ohjelmistotekniikan_ kurssin __harjoitukset__
+Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli. 
 
 ## Dokumentaatio
 
@@ -12,4 +12,41 @@ Tänne on tarkoitus tallentaa _Ohjelmistotekniikan_ kurssin __harjoitukset__
 1. Riippuvuuksien asentaminen:
 ```bash
 poetry install
+```
+2. Suorita alustustoimenpiteet:
+```bash
+poetry run invoke build
+```
+
+3. Sovelluksen käynnistäminen:
+```bash
+poetry run invoke start
+```
+## Komentorivitoiminnot
+
+### Ohjelman suorittaminen:
+
+Sovelluksen käynnistäminen:
+```bash
+poetry run invoke start
+```
+### Testaus
+
+Aja testit komennolla:
+```bash
+poetry run invoke test
+```
+### Testikattavuus
+
+Testikattavuuden raportti:
+```bash
+poetry run invoke coverage-report
+```
+Html-version raportista saa avaamalla tiedoston htmlcov/index.html
+
+### Pylint
+
+Pylintin tarkistukset voi ajaa komennolla:
+```bash
+poetry run invoke lint
 ```
