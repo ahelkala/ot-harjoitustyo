@@ -22,4 +22,3 @@ class GameGrid:         #alustetaan peliruudukko
 
     def set_mine_neighbours(self):   #ToDo montako miinaa on ruutujen ympärillä
         pass
-
