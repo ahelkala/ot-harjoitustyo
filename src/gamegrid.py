@@ -3,13 +3,14 @@
 #
 import random
 
-class GameGrid:
+class GameGrid:         #alustetaan peliruudukko
     def __init__(self, size, mines):
         self.size = size
         self.mine_count = mines
-        self.set_grid()
+        self.set_mines()
+        self.set_mine_neighbours()
 
-    def set_grid(self):
+    def set_mines(self):    # luodaan ruudukko ja arvotaan sille miinat
         self.grid = [[0]*self.size for _ in range(self.size)]
         i = 0
         while i < self.mine_count:
@@ -18,5 +19,7 @@ class GameGrid:
             if self.grid[korkeus][leveys] == 0:
                 self.grid[korkeus][leveys] = 10
                 i += 1
-        print(self.grid)
+
+    def set_mine_neighbours(self):   #ToDo montako miinaa on ruutujen ympärillä
+        pass
 
