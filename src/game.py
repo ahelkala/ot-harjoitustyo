@@ -18,7 +18,7 @@ class Game:
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Miinaharava")
         grid = GameGrid(self.row_count, self.mine_count)
-        self.not_visited_block = pygame.transform.scale(pygame.image.load("(/src/assets/11.png"),
+        self.not_visited_block = pygame.transform.scale(pygame.image.load("src/assets/11.png"),
                                                         (self.block_size, self.block_size))
 
     def loop(self):
