@@ -4,7 +4,7 @@ from gamegrid import GameGrid
 
 class Game:
     def __init__(self, game_area_size: int):
-        # alustetaan pygame 
+        # alustetaan pygame
         pygame.init()
         # peliobjektin koko pikseleinä
         self.block_size = 30
@@ -18,14 +18,15 @@ class Game:
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Miinaharava")
         self.grid = GameGrid(self.row_count, self.mine_count)
-        #tehdään lista kuville ja täytetään se 
+        # tehdään lista kuville ja täytetään se
         self.block_list = []
         self.set_block_list()
 
     def set_block_list(self):
         for i in range(12):
             file_name = "src/assets/" + str(i) + ".png"
-            self.block_list.append(pygame.transform.scale(pygame.image.load(file_name), (self.block_size, self.block_size)))
+            self.block_list.append(pygame.transform.scale(
+                pygame.image.load(file_name), (self.block_size, self.block_size)))
 
     def loop(self):
         while True:
