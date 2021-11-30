@@ -28,7 +28,7 @@ class Game:
     #ladataan pelin käyttämät kuvat listalle
     def set_block_list(self):
         for i in range(12):
-            file_name = "src/assets/" + str(i) + ".png"
+            file_name = "assets/" + str(i) + ".png"
             self.block_list.append(pygame.transform.scale(
                 pygame.image.load(file_name), (self.block_size, self.block_size)))
 
@@ -57,9 +57,9 @@ class Game:
     # lähetetään hiiren sijainti oikean tai vasemman painalluksen käsittelevälle funktiolle
     def handle_mouse(self, button, position):
         if button == 1:
-            self.grid.handle_left_mouse(position)
+            self.grid.handle_left_mouse(position, self.block_size)
         if button > 1:
-            self.grid.handle_right_mouse(position)
+            self.grid.handle_right_mouse(position, self.block_size)
 
     #piirretään käyttöliittymä
     #todo: tämä omaksi luokaksi?

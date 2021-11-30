@@ -33,9 +33,9 @@ class GameGrid:  # alustetaan peliruudukko
 
     #hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
     #todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
-    def handle_left_mouse(self, position):
-        position_j = position[0] // 30
-        position_i = (position[1] - 90) // 30
+    def handle_left_mouse(self, position, size):
+        position_j = position[0] // size
+        position_i = (position[1] - 90) // size
         if self.grid[position_i][position_j] < 9:
             self.grid[position_i][position_j] += 20
             self.klicked += 1
@@ -44,9 +44,9 @@ class GameGrid:  # alustetaan peliruudukko
             self.mine_hit = True
             
     #oikealla hiiren klikkauksella lippu päälle/ lippu pois
-    def handle_right_mouse(self, position):
-        position_j = position[0] // 30
-        position_i = (position[1] - 90) // 30
+    def handle_right_mouse(self, position, size):
+        position_j = position[0] // size
+        position_i = (position[1] - 90) // size
         if self.grid[position_i][position_j] < 11:
             self.grid[position_i][position_j] += 50
             self.flags += 1
