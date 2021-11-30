@@ -6,4 +6,5 @@
 | 19.11. | 2   | projektin alustusta, poetry yms |
 | 20.11. | 3   | koodin rakenteen hahmottelua, koodauksen aloittelua  |
 | 21.11. | 5   | sovelluksen rungon koodaamista |
-| yht   | 12h  | 
+| 30.11. | 8   | sovelluksen toiminnallisuuden koodaminen sekä hieman testejä & kaavioita |
+| yht   | 20h  | 
