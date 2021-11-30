@@ -52,3 +52,5 @@ Pylintin tarkistukset voi ajaa komennolla:
 ```bash
 poetry run invoke lint
 ```
+### Lähteet
+Pelissä käytetyt kuvat tehnyt OpenGameArt.Org -sivustolla nimimerkki Eugeneloza (https://opengameart.org/content/minesweeper-tile-set-lazarus). Lisenssi "Feel free to use :)".
