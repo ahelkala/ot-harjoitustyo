@@ -8,6 +8,8 @@ Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli.
 
 [Työaikakirjanpito](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Asennus
 1. Riippuvuuksien asentaminen:
 ```bash
