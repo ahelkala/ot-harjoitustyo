@@ -36,6 +36,8 @@ class GameGrid:  # alustetaan peliruudukko
     def handle_left_mouse(self, position, size):
         position_j = position[0] // size
         position_i = (position[1] - 90) // size
+        if position_i < 0:
+            return
         if self.grid[position_i][position_j] < 9:
             self.grid[position_i][position_j] += 20
             self.klicked += 1
