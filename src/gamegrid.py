@@ -10,6 +10,7 @@ class GameGrid:  # alustetaan peliruudukko
         self.mine_count = mines
         self.set_mines()
         self.set_mine_neighbours()
+        print(self.grid)
 
     def set_mines(self):    # luodaan ruudukko ja arvotaan sille miinat
         self.grid = [[0]*self.size for _ in range(self.size)]
@@ -23,4 +24,37 @@ class GameGrid:  # alustetaan peliruudukko
 
     # Todo montako miinaa on ruutujen ympärillä
     def set_mine_neighbours(self):
-        pass
+        for i in range(self.size):
+            for j in range(self.size):
+                if self.grid[i][j] == 10:
+                    self.set_numbers(i,j)
+
+    def set_numbers(self, i, j): #todo saako selkeämmäksi jotenkin?
+        if i > 0:
+            if j > 0:
+                if self.grid[i-1][j-1] != 10:
+                    self.grid[i-1][j-1] += 1
+            if j < self.size -1:
+                if self.grid[i-1][j+1] != 10:
+                    self.grid[i-1][j+1] += 1
+
+            if self.grid[i-1][j] != 10:
+                self.grid[i-1][j] += 1
+
+        if i < self.size -1:
+            if j > 0:
+                if self.grid[i+1][j-1] != 10:
+                    self.grid[i+1][j-1] += 1
+            if j < self.size -1:
+                if self.grid[i+1][j+1] != 10:
+                    self.grid[i+1][j+1] += 1
+
+            if self.grid[i+1][j] != 10:
+                self.grid[i+1][j] += 1
+
+        if j > 0:
+            if self.grid[i][j-1] != 10:
+                self.grid[i][j-1] += 1
+        if j < self.size -1:
+            if self.grid[i][j+1] != 10:
+                self.grid[i][j+1] += 1
