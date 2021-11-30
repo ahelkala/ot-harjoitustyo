@@ -31,8 +31,8 @@ class GameGrid:  # alustetaan peliruudukko
                 if self.grid[i][j] == 10:
                     self.set_numbers(i, j)
 
-    #hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
-    #todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
+    # hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
+    # todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
     def handle_left_mouse(self, position, size):
         position_j = position[0] // size
         position_i = (position[1] - 90) // size
@@ -44,8 +44,8 @@ class GameGrid:  # alustetaan peliruudukko
         if self.grid[position_i][position_j] == 10:
             self.grid[position_i][position_j] += 20
             self.mine_hit = True
-            
-    #oikealla hiiren klikkauksella lippu päälle/ lippu pois
+
+    # oikealla hiiren klikkauksella lippu päälle/ lippu pois
     def handle_right_mouse(self, position, size):
         position_j = position[0] // size
         position_i = (position[1] - 90) // size
@@ -53,11 +53,11 @@ class GameGrid:  # alustetaan peliruudukko
             self.grid[position_i][position_j] += 50
             self.flags += 1
         elif self.grid[position_i][position_j] >= 50:
-            self.grid[position_i][position_j] -= 50   
-            self.flags -= 1          
+            self.grid[position_i][position_j] -= 50
+            self.flags -= 1
 
-    #lasketaan miinan vieressä oleville ruuduille numeroarvot
-    #todo: selkiytetään koodia
+    # lasketaan miinan vieressä oleville ruuduille numeroarvot
+    # todo: selkiytetään koodia
     def set_numbers(self, i, j):
         if i > 0:
             if j > 0:
