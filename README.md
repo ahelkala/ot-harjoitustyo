@@ -10,6 +10,8 @@ Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli.
 
 [Arkkitehtuurikuvaus](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Release viikko 5](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Asennus
 1. Riippuvuuksien asentaminen:
 ```bash
