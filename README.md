@@ -2,6 +2,8 @@
 
 Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli. 
 
+[Release viikko 5](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusm%C3%A4%C3%A4rittely.md)
@@ -9,8 +11,6 @@ Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli.
 [Työaikakirjanpito](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 [Arkkitehtuurikuvaus](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-
-[Release viikko 5](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Asennus
 1. Riippuvuuksien asentaminen:
