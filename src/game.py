@@ -25,7 +25,8 @@ class Game:
         self.set_block_list()
         self.font = pygame.font.SysFont("Arial", 24)
         self.won_time = "xxx"
-        self.drawer = Draw(self.width, self.height, self.row_count, self.block_size, self.block_list)
+        self.drawer = Draw(self.width, self.height,
+                           self.row_count, self.block_size, self.block_list)
 
     # ladataan pelin käyttämät kuvat listalle
     def set_block_list(self):
@@ -38,7 +39,8 @@ class Game:
         self.won = False
         while True:
             self.check_events()
-            self.drawer.draw(self.grid, self.won, self.mine_count, self.won_time)
+            self.drawer.draw(self.grid, self.won,
+                             self.mine_count, self.won_time)
             self.check_if_won()
             self.clock.tick(60)
 

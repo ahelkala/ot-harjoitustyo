@@ -1,5 +1,6 @@
 import pygame
 
+
 class Draw:
     def __init__(self, width, height, row_count, block_size, block_list):
         self.font = pygame.font.SysFont("Arial", 24)
@@ -12,21 +13,21 @@ class Draw:
     # piirretään käyttöliittymä
     def draw(self, grid, won, mine_count, won_time):
         self.game_screen.fill((0, 0, 0))
-        self.draw_clock(won, grid, won_time)       
+        self.draw_clock(won, grid, won_time)
         self.draw_mines_left(mine_count, grid)
         if won:
             self.draw_won(won_time)
         if not won:
             self.draw_blocks(grid)
         pygame.display.flip()
-    
+
     def draw_won(self, won_time):
         message = "You won, your time: " + str(won_time)
-        won_string = self.font.render(message, True, (0,255,0))
+        won_string = self.font.render(message, True, (0, 255, 0))
         self.game_screen.blit(won_string, (20, 120))
 
-
     # piirretään miinalaskuri. todo: lisää tausta
+
     def draw_mines_left(self, mine_count, grid):
         mines_left = str(mine_count - grid.flags)
         display_mines_left = self.font.render(mines_left, True, (255, 0, 0))
