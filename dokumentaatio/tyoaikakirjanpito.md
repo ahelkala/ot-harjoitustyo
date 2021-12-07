@@ -7,4 +7,5 @@
 | 20.11. | 3   | koodin rakenteen hahmottelua, koodauksen aloittelua  |
 | 21.11. | 5   | sovelluksen rungon koodaamista |
 | 30.11. | 8   | sovelluksen toiminnallisuuden koodaminen sekä hieman testejä & kaavioita |
-| yht   | 20h  | 
+| 7.12. | 5   | käyttöliittymän eriyttämine omaan luokkaan & pieniä muutoksia |
+| yht   | 25h  | 
