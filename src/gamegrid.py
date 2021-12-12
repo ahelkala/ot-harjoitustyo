@@ -30,6 +30,32 @@ class GameGrid:  # alustetaan peliruudukko
             for j in range(self.size):
                 if self.grid[i][j] == 10:
                     self.set_numbers(i, j)
+    
+    def list_neighbours(self, i, j):
+        list = []
+        for k in range(i-1, i+2):
+            for l in range(j-1,j+2):
+                if 0 <= k <= self.size -1 and 0 <= l <= self.size -1:
+                    list.append((k,l))
+        return list
+
+    def solve_zeros(self, i, j):
+        list = self.list_neighbours(i,j)
+        for coordinates in list:
+            if self.grid[coordinates[0]][coordinates[1]] == 0:
+                self.grid[coordinates[0]][coordinates[1]] += 20
+                self.klicked += 1                
+                self.solve_zeros(coordinates[0],coordinates[1])
+                self.solve_numbers(coordinates[0],coordinates[1])  
+    
+    def solve_numbers(self, i, j):
+        list = self.list_neighbours(i,j)
+        for coordinates in list:
+            if 0 < self.grid[coordinates[0]][coordinates[1]] < 10:
+                self.grid[coordinates[0]][coordinates[1]] += 20
+                self.klicked += 1                
+                 
+                
 
     # hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
     # todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
@@ -38,7 +64,9 @@ class GameGrid:  # alustetaan peliruudukko
         position_i = (position[1] - 90) // size
         if position_i < 0:
             return
-        if self.grid[position_i][position_j] < 9:
+        if self.grid[position_i][position_j] == 0:
+            self.solve_zeros(position_i, position_j)
+        if 0 < self.grid[position_i][position_j] < 9:
             self.grid[position_i][position_j] += 20
             self.klicked += 1
         if self.grid[position_i][position_j] == 10:

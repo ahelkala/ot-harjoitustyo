@@ -4,6 +4,6 @@
 #
 
 from game import Game
-SIZE = 9  # pelialueen koko
+SIZE = 20  # pelialueen koko
 new_game = Game(SIZE)
 new_game.loop()

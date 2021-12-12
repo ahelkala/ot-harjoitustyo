@@ -11,7 +11,7 @@ class Game:
         self.block_size = 30
         # peliobjektien määrä rivillä
         self.row_count = game_area_size
-        self.mine_count = 6
+        self.mine_count = 50
         # varataan pieni tili tulevalle yläpalkille
         self.width, self.height = self.block_size * self.row_count, \
             self.block_size * self.row_count + 90
