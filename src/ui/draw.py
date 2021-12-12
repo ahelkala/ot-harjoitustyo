@@ -17,14 +17,20 @@ class Draw:
         self.draw_mines_left(mine_count, grid)
         if won:
             self.draw_won(won_time)
-        if not won:
-            self.draw_blocks(grid)
+        if grid.mine_hit:
+            self.draw_lost(won_time)
+        self.draw_blocks(grid)
         pygame.display.flip()
 
     def draw_won(self, won_time):
         message = "You won, your time: " + str(won_time)
         won_string = self.font.render(message, True, (0, 255, 0))
-        self.game_screen.blit(won_string, (20, 120))
+        self.game_screen.blit(won_string, (60, 0))
+
+    def draw_lost(self, won_time):
+        message = "Game over" 
+        won_string = self.font.render(message, True, (0, 255, 0))
+        self.game_screen.blit(won_string, (60, 0))
 
     # piirretään miinalaskuri. todo: lisää tausta
 

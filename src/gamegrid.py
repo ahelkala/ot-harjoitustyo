@@ -87,31 +87,35 @@ class GameGrid:  # alustetaan peliruudukko
     # lasketaan miinan vieressä oleville ruuduille numeroarvot
     # todo: selkiytetään koodia
     def set_numbers(self, i, j):
-        if i > 0:
-            if j > 0:
-                if self.grid[i-1][j-1] != 10:
-                    self.grid[i-1][j-1] += 1
-            if j < self.size - 1:
-                if self.grid[i-1][j+1] != 10:
-                    self.grid[i-1][j+1] += 1
+        list = self.list_neighbours(i,j)
+        for neighbour in list:
+            if self.grid[neighbour[0]][neighbour[1]] != 10:
+                self.grid[neighbour[0]][neighbour[1]] += 1       
+        # if i > 0:
+        #     if j > 0:
+        #         if self.grid[i-1][j-1] != 10:
+        #             self.grid[i-1][j-1] += 1
+        #     if j < self.size - 1:
+        #         if self.grid[i-1][j+1] != 10:
+        #             self.grid[i-1][j+1] += 1
 
-            if self.grid[i-1][j] != 10:
-                self.grid[i-1][j] += 1
+        #     if self.grid[i-1][j] != 10:
+        #         self.grid[i-1][j] += 1
 
-        if i < self.size - 1:
-            if j > 0:
-                if self.grid[i+1][j-1] != 10:
-                    self.grid[i+1][j-1] += 1
-            if j < self.size - 1:
-                if self.grid[i+1][j+1] != 10:
-                    self.grid[i+1][j+1] += 1
+        # if i < self.size - 1:
+        #     if j > 0:
+        #         if self.grid[i+1][j-1] != 10:
+        #             self.grid[i+1][j-1] += 1
+        #     if j < self.size - 1:
+        #         if self.grid[i+1][j+1] != 10:
+        #             self.grid[i+1][j+1] += 1
 
-            if self.grid[i+1][j] != 10:
-                self.grid[i+1][j] += 1
+        #     if self.grid[i+1][j] != 10:
+        #         self.grid[i+1][j] += 1
 
-        if j > 0:
-            if self.grid[i][j-1] != 10:
-                self.grid[i][j-1] += 1
-        if j < self.size - 1:
-            if self.grid[i][j+1] != 10:
-                self.grid[i][j+1] += 1
+        # if j > 0:
+        #     if self.grid[i][j-1] != 10:
+        #         self.grid[i][j-1] += 1
+        # if j < self.size - 1:
+        #     if self.grid[i][j+1] != 10:
+        #         self.grid[i][j+1] += 1

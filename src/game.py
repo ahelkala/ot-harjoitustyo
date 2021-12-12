@@ -1,26 +1,22 @@
 import pygame
 from gamegrid import GameGrid
-from draw import Draw
+from ui.draw import Draw
+
 
 
 class Game:
     def __init__(self, game_area_size: int):
         # alustetaan pygame
         pygame.init()
-        # peliobjektin koko pikseleinä
         self.block_size = 30
-        # peliobjektien määrä rivillä
         self.row_count = game_area_size
-        self.mine_count = 50
-        # varataan pieni tili tulevalle yläpalkille
+        self.mine_count = 60
         self.width, self.height = self.block_size * self.row_count, \
             self.block_size * self.row_count + 90
-
         self.game_screen = pygame.display.set_mode((self.width, self.height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Miinaharava")
         self.grid = GameGrid(self.row_count, self.mine_count)
-        # tehdään lista kuville ja täytetään se
         self.block_list = []
         self.set_block_list()
         self.font = pygame.font.SysFont("Arial", 24)
@@ -28,21 +24,29 @@ class Game:
         self.drawer = Draw(self.width, self.height,
                            self.row_count, self.block_size, self.block_list)
 
+
     # ladataan pelin käyttämät kuvat listalle
     def set_block_list(self):
         for i in range(12):
-            file_name = "src/assets/" + str(i) + ".png"
+            file_name = "assets/" + str(i) + ".png"
             self.block_list.append(pygame.transform.scale(
                 pygame.image.load(file_name), (self.block_size, self.block_size)))
 
+
     def loop(self):
         self.won = False
+        self.start_time = pygame.time.get_ticks()
         while True:
+
             self.check_events()
             self.drawer.draw(self.grid, self.won,
                              self.mine_count, self.won_time)
             self.check_if_won()
             self.clock.tick(60)
+    
+    def restart(self):
+        self.grid = GameGrid(self.row_count, self.mine_count)
+        self.loop()
 
     # voitettiinko?
     def check_if_won(self):
@@ -55,8 +59,11 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN and not self.won and not self.grid.mine_hit:
                 self.handle_mouse(event.button, event.pos)
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    self.restart()
 
     # lähetetään hiiren sijainti oikean tai vasemman painalluksen käsittelevälle funktiolle
     def handle_mouse(self, button, position):

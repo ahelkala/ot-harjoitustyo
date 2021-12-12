@@ -3,6 +3,8 @@
 .pytest_cache
 htmlcov
 __pycache__
+database.py
+difficulty_view.py
 
 /laskarit/viikko2/unicafe/.pytest_cache
 /laskarit/viikko2/unicafe/__pycache__
