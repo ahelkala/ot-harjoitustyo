@@ -3,7 +3,6 @@ from gamegrid import GameGrid
 from ui.draw import Draw
 
 
-
 class Game:
     def __init__(self, game_area_size: int):
         pygame.init()
@@ -31,7 +30,6 @@ class Game:
             self.block_list.append(pygame.transform.scale(
                 pygame.image.load(file_name), (self.block_size, self.block_size)))
 
-
     def loop(self):
         """Looppi, joka on käynnissä ohjelman suorituksen loppuun asti
 
@@ -46,7 +44,7 @@ class Game:
                              self.mine_count, self.won_time)
             self.check_if_won()
             self.clock.tick(60)
-    
+
     def restart(self):
         """käynnistetään peli uudelleen.
         """

@@ -4,7 +4,7 @@
 import random
 
 
-class GameGrid:  
+class GameGrid:
     """Luokka miinakentän luomiseen ja sen ylläpitoon syötteiden avulla.
 
     Attributes:
@@ -14,6 +14,7 @@ class GameGrid:
         klicked: Käyttäjän avaamien ruutujen määrä.
         mine_hit: Onko osuttu miinaan. 
     """
+
     def __init__(self, size, mines):
         self.size = size
         self.mine_count = mines
@@ -42,7 +43,7 @@ class GameGrid:
             for j in range(self.size):
                 if self.grid[i][j] == 10:
                     self.set_numbers(i, j)
-    
+
     def list_neighbours(self, i, j):
         """Lasketaan annettua koordinaattia ympäröivien ruutujen koordinaatit.
 
@@ -55,9 +56,9 @@ class GameGrid:
         """
         list = []
         for k in range(i-1, i+2):
-            for l in range(j-1,j+2):
-                if 0 <= k <= self.size -1 and 0 <= l <= self.size -1:
-                    list.append((k,l))
+            for l in range(j-1, j+2):
+                if 0 <= k <= self.size - 1 and 0 <= l <= self.size - 1:
+                    list.append((k, l))
         return list
 
     def solve_zeros(self, i, j):
@@ -70,14 +71,14 @@ class GameGrid:
             i: Miinakentän y-koordinaatti.
             j: Miinakentän x-koordinaatti.
         """
-        list = self.list_neighbours(i,j)
+        list = self.list_neighbours(i, j)
         for coordinates in list:
             if self.grid[coordinates[0]][coordinates[1]] == 0:
                 self.grid[coordinates[0]][coordinates[1]] += 20
-                self.klicked += 1                
-                self.solve_zeros(coordinates[0],coordinates[1])
-                self.solve_numbers(coordinates[0],coordinates[1])  
-    
+                self.klicked += 1
+                self.solve_zeros(coordinates[0], coordinates[1])
+                self.solve_numbers(coordinates[0], coordinates[1])
+
     def solve_numbers(self, i, j):
         """Selvittää nollan ympärillä olevien ruutujen numeroarvot.
 
@@ -85,12 +86,12 @@ class GameGrid:
             i: Miinakentän y-koordinaatti.
             j: Miinakentän x-koordinaatti.
         """
-        list = self.list_neighbours(i,j)
+        list = self.list_neighbours(i, j)
         for coordinates in list:
             if 0 < self.grid[coordinates[0]][coordinates[1]] < 10:
                 self.grid[coordinates[0]][coordinates[1]] += 20
-                self.klicked += 1                
-                 
+                self.klicked += 1
+
     # hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
     # todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
     def handle_left_mouse(self, position, size):
@@ -140,8 +141,7 @@ class GameGrid:
             i: Miinakentän y-koordinaatti.
             j: Miinakentän x-koordinaatti.
         """
-        list = self.list_neighbours(i,j)
+        list = self.list_neighbours(i, j)
         for neighbour in list:
             if self.grid[neighbour[0]][neighbour[1]] != 10:
-                self.grid[neighbour[0]][neighbour[1]] += 1       
-
+                self.grid[neighbour[0]][neighbour[1]] += 1

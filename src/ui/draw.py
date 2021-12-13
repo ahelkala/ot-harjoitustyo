@@ -1,4 +1,6 @@
 import pygame
+
+
 class Draw:
     def __init__(self, width, height, row_count, block_size, block_list):
         self.font = pygame.font.SysFont("Arial", 24)
@@ -26,7 +28,7 @@ class Draw:
         self.game_screen.blit(won_string, (60, 0))
 
     def draw_lost(self, won_time):
-        message = "Game over" 
+        message = "Game over"
         won_string = self.font.render(message, True, (0, 255, 0))
         self.game_screen.blit(won_string, (60, 0))
 
