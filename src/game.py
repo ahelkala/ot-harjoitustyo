@@ -6,7 +6,6 @@ from ui.draw import Draw
 
 class Game:
     def __init__(self, game_area_size: int):
-        # alustetaan pygame
         pygame.init()
         self.block_size = 30
         self.row_count = game_area_size
@@ -24,9 +23,9 @@ class Game:
         self.drawer = Draw(self.width, self.height,
                            self.row_count, self.block_size, self.block_list)
 
-
-    # ladataan pelin käyttämät kuvat listalle
     def set_block_list(self):
+        """Täällä ladataan pelin käyttämät kuvat listalle
+        """
         for i in range(12):
             file_name = "assets/" + str(i) + ".png"
             self.block_list.append(pygame.transform.scale(
@@ -34,6 +33,10 @@ class Game:
 
 
     def loop(self):
+        """Looppi, joka on käynnissä ohjelman suorituksen loppuun asti
+
+        Tämän kautta tarkitetaan tapahtumat, piirretään käyttöliittymä sekä pidetään kirjaa onko peli ohi
+        """
         self.won = False
         self.start_time = pygame.time.get_ticks()
         while True:
@@ -45,17 +48,26 @@ class Game:
             self.clock.tick(60)
     
     def restart(self):
+        """käynnistetään peli uudelleen.
+        """
         self.grid = GameGrid(self.row_count, self.mine_count)
         self.loop()
 
-    # voitettiinko?
     def check_if_won(self):
+        """Tarkistetaan onko peli ohi.
+
+        Peli voi päättyä joko osumalla miinaan tai kun kaikki luukut miinoja lukuun ottamatta on avattu.
+        """
         if self.row_count ** 2 - self.grid.klicked == self.mine_count and self.grid.mine_hit == False and self.won == False:
             self.won = True
             self.won_time = str(pygame.time.get_ticks() // 1000)
 
-    # tarkistetaan tapahtumat.
     def check_events(self):
+        """Tarkistetaan näppäimistön ja hiiren tapahtumat.
+
+        Jos suljetaan, ohjelman suoritus lopetataan. Välilyönnillä peli käynnistetään uudelleen ja hiiren 
+        klikkaukset lähetetään edelleen tutkittavaksi.
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
@@ -65,8 +77,13 @@ class Game:
                 if event.key == pygame.K_SPACE:
                     self.restart()
 
-    # lähetetään hiiren sijainti oikean tai vasemman painalluksen käsittelevälle funktiolle
     def handle_mouse(self, button, position):
+        """Lähetetään painetun hiiren napin mukaan hiiren koordinaatit niitä käsitteleville metodeille.
+
+        Args:
+            button (int): painetun hiiren napin tunniste.
+            position (tuple): hiiren kursorin sijainti klikkaushetkellä.
+        """
         if button == 1:
             self.grid.handle_left_mouse(position, self.block_size)
         if button > 1:
