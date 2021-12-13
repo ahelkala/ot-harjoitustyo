@@ -1,6 +1,4 @@
 import pygame
-
-
 class Draw:
     def __init__(self, width, height, row_count, block_size, block_list):
         self.font = pygame.font.SysFont("Arial", 24)
@@ -48,8 +46,14 @@ class Draw:
         display_clock = self.font.render(play_time, True, (255, 0, 0))
         self.game_screen.blit(display_clock, (0, 33))
 
-    # piirretään miinakenttä
     def draw_blocks(self, grid):
+        """Piirretään miinakenttä.
+
+        Valitaan peliruudukon numeerista arvoa vastaava kuva ja piirretään se kyseiseen ruutuun.
+
+        Args:
+            grid: peliruudukko.
+        """
         for i in range(self.row_count):
             for j in range(self.row_count):
                 if 50 > grid.grid[i][j] > 10:

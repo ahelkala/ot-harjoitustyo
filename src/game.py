@@ -27,7 +27,7 @@ class Game:
         """Täällä ladataan pelin käyttämät kuvat listalle
         """
         for i in range(12):
-            file_name = "assets/" + str(i) + ".png"
+            file_name = "src/assets/" + str(i) + ".png"
             self.block_list.append(pygame.transform.scale(
                 pygame.image.load(file_name), (self.block_size, self.block_size)))
 
