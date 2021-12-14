@@ -2,6 +2,8 @@
 
 Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli. 
 
+[Release viikko 6](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko6)
+
 [Release viikko 5](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
