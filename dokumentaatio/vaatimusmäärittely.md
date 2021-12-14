@@ -22,7 +22,7 @@ Sovelluksessa on kolme näkymää. Itse pelinäkymä, näkymä nimen tallentamis
 - käyttäjä näkee jäljellä olevien miinojen määrän laskurista -*Tehty*
 - käyttäjälle näytetään peliin käytetty aika -*Tehty*
 - kun kaikki muut ruudut on miinoja lukuunottamatta on avattu, käyttäjä voittaa pelin -*Tehty*
-- jos käyttäjä osuu miinaan, peli päättyy
+- jos käyttäjä osuu miinaan, peli päättyy -*Tehty*
 
 ### Voiton jälkeen
 
