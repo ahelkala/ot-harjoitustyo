@@ -1,6 +1,7 @@
 import sqlite3
 import getpass
 
+
 class DataBaseConnection:
     def __init__(self):
         self.fail = False
@@ -18,10 +19,11 @@ class DataBaseConnection:
             self.db.execute(self.create_score_table)
             score_list = self.get_score()
             if len(score_list) < 5:
-                for i  in range(5):
+                for i in range(5):
                     player = "Player" + str(i+1)
                     score = 9999 - i
-                    self.db.execute("INSERT INTO Scores (name, points) VALUES (?,?)", [player, score])
+                    self.db.execute(
+                        "INSERT INTO Scores (name, points) VALUES (?,?)", [player, score])
         except:
             self.fail = True
 
@@ -30,13 +32,11 @@ class DataBaseConnection:
         if len(user) > 10:
             user = user[:9]
         if not self.fail:
-            self.db.execute("INSERT INTO Scores (name, points) VALUES (?,?)", [user, score])
+            self.db.execute(
+                "INSERT INTO Scores (name, points) VALUES (?,?)", [user, score])
 
     def get_score(self):
-        top_score = self.db.execute("SELECT name, points FROM Scores ORDER BY points LIMIT 5").fetchall()
+        top_score = self.db.execute(
+            "SELECT name, points FROM Scores ORDER BY points LIMIT 5").fetchall()
         return top_score
 
-if __name__ == "__main__":
-    kanta = DataBaseConnection()
-    kanta.add_score(60)
-    print(kanta.get_score())

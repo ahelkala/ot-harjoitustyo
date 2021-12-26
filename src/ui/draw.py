@@ -1,6 +1,7 @@
 import pygame
 from database import DataBaseConnection
 
+
 class Draw:
     def __init__(self, width, height, row_count, block_size, block_list):
         """Alustetaan Draw-luokka. 
@@ -54,17 +55,16 @@ class Draw:
             score_text = str(score_list[i][0]) + ":  " + str(score_list[i][1])
             score_line = self.font.render(score_text, True, (255, 0, 0))
             self.game_screen.blit(score_line, (30, 140 + i*40))
-    
+
     def draw_score_backround(self):
         """Piirretään tuloksia varten läpinäkyvä tausta ja otsikkorivi.
         """
-        surface = pygame.Surface((200,240))
+        surface = pygame.Surface((200, 240))
         surface.set_alpha(190)
-        surface.fill((80,80,80))
-        self.game_screen.blit(surface, (0,90))
+        surface.fill((80, 80, 80))
+        self.game_screen.blit(surface, (0, 90))
         topic = self.font.render("Top Scores: ", True, (255, 0, 0))
         self.game_screen.blit(topic, (30, 100))
-
 
     def draw_won(self, won_time):
         """Piirretään voittoteksti voiton jälkeen.
@@ -103,7 +103,8 @@ class Draw:
             won_time: voittoaika.
         """
         if not won and grid.mine_hit == False:
-            play_time = str((pygame.time.get_ticks() - self.start_time)// 1000)
+            play_time = str(
+                (pygame.time.get_ticks() - self.start_time) // 1000)
         else:
             play_time = won_time
         display_clock = self.font.render(play_time, True, (255, 0, 0))

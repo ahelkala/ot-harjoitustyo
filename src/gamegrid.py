@@ -12,7 +12,7 @@ class GameGrid:
         mine_count: Miinojen määrä.
         flags: Käyttäjän kentälle asettamien lippujen määrä.
         klicked: Käyttäjän avaamien ruutujen määrä.
-        mine_hit: Onko osuttu miinaan. 
+        mine_hit: Onko osuttu miinaan.
     """
 
     def __init__(self, size, mines):
@@ -54,12 +54,12 @@ class GameGrid:
         Returns:
             Lista, jonne kirjattu annetun ruudun ympärillä olevien ruutujen koordinaatit.
         """
-        list = []
+        nbr_list = []
         for k in range(i-1, i+2):
             for l in range(j-1, j+2):
                 if 0 <= k <= self.size - 1 and 0 <= l <= self.size - 1:
-                    list.append((k, l))
-        return list
+                    nbr_list.append((k, l))
+        return nbr_list
 
     def solve_zeros(self, i, j):
         """Avataan klikatun nollan ympärillä olevat ruudut.
@@ -92,8 +92,6 @@ class GameGrid:
                 self.grid[coordinates[0]][coordinates[1]] += 20
                 self.klicked += 1
 
-    # hiirellä klikattu, avataan luukku ja katsotaan mitä sisällä
-    # todo: miinaan osuminen, avatun ruudun tyhjien naapureiden avaaminen
     def handle_left_mouse(self, position, size):
         """Käsittelee hiiren vasemman painikkeen klikkauksen.
 
