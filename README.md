@@ -1,10 +1,6 @@
 # Miinaharava
 
-Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli. 
-
-[Release viikko 6](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko6)
-
-[Release viikko 5](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko5)
+Sovellus on mukaelma perinteisestä Miinaharava-pelistä. Peli on yksinpeli, jonka tarkoituksena on löytää miinakentälle kätketyt miinat mahdollisimman nopeasti. Peli päättyy tappioon, jos pelaaja osuu miinaan.
 
 ## Dokumentaatio
 
@@ -23,12 +19,8 @@ Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli.
 ```bash
 poetry install
 ```
-2. Suorita alustustoimenpiteet:
-```bash
-poetry run invoke build
-```
 
-3. Sovelluksen käynnistäminen:
+2. Sovelluksen käynnistäminen:
 ```bash
 poetry run invoke start
 ```
