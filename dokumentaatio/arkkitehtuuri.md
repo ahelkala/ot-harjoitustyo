@@ -1,10 +1,12 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Luokka *Draw* sisältää käyttöliittymän koodin. Luokka *Game* sisältää hoitaa pelin logiikan, lukuun ottamatta miinakentän ylläpitoa, jonka hoitaa luokka *GameGrid*. 
+Luokka *Draw* sisältää käyttöliittymän koodin. Luokka *Game* sisältää hoitaa pelin logiikan, lukuun ottamatta miinakentän ylläpitoa, jonka hoitaa luokka *GameGrid*. Läpäistyjen pelien tulokset tallennetaan ja luetaan luokasta *DataBaseConnection*
 
-<img src="https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/luokkakaavio2.png" width="750">
+<img src="https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/luokkakaavio3.png" width="750">
 
+## Tietojen tallennus
+Pelitulokset tallennetaan SQLite-tietokantaan. Tietokantaan luodaan myös sen luonnin yhteydessä valmiita tuloksia, jotta tuloslistalla olisi heti näytettävää. 
 
 ## Pelin käynnistyminen luokkakaaviona
 <img src="https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/gamestart.png" width="750">
