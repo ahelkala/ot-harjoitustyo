@@ -5,6 +5,7 @@ import getpass
 class DataBaseConnection:
     """Luokka huolehtii tulosten lukemiseen ja tallentamiseen liittyvistä operaatioista.
     """
+
     def __init__(self):
         """Luodaan tietokanta tietojen tallennusta varten.
         """
@@ -55,4 +56,3 @@ class DataBaseConnection:
         top_score = self.db.execute(
             "SELECT name, points FROM Scores ORDER BY points LIMIT 5").fetchall()
         return top_score
-

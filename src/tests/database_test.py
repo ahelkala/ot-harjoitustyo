@@ -13,7 +13,7 @@ class TestDataBaseConnection(unittest.TestCase):
         scores = self.database.get_score()
         self.assertEqual(len(scores), 5)
 
-    def test_database_adds_score(self):    
+    def test_database_adds_score(self):
         self.database.add_score(0)
         scores = self.database.get_score()
         self.assertEqual(scores[0][1], 0)
