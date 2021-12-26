@@ -1,6 +1,7 @@
 import pygame
 from gamegrid import GameGrid
 from ui.draw import Draw
+from database import DataBaseConnection
 
 
 class Game:
@@ -8,7 +9,7 @@ class Game:
         pygame.init()
         self.block_size = 30
         self.row_count = game_area_size
-        self.mine_count = 60
+        self.mine_count = 20
         self.width, self.height = self.block_size * self.row_count, \
             self.block_size * self.row_count + 90
         self.game_screen = pygame.display.set_mode((self.width, self.height))
@@ -33,10 +34,13 @@ class Game:
     def loop(self):
         """Looppi, joka on käynnissä ohjelman suorituksen loppuun asti
 
-        Tämän kautta tarkitetaan tapahtumat, piirretään käyttöliittymä sekä pidetään kirjaa onko peli ohi
+        Tämän kautta tarkitetaan tapahtumat, piirretään käyttöliittymä sekä pidetään kirjaa 
+        onko peli ohi
         """
         self.won = False
         self.start_time = pygame.time.get_ticks()
+        self.drawer.start_time = self.start_time
+        self.score_base = DataBaseConnection()
         while True:
 
             self.check_events()
@@ -52,19 +56,22 @@ class Game:
         self.loop()
 
     def check_if_won(self):
-        """Tarkistetaan onko peli ohi.
+        """Tarkistetaan onko peli ohi. Voitetetun pelin aika tallennetaan tietokantaan.
 
-        Peli voi päättyä joko osumalla miinaan tai kun kaikki luukut miinoja lukuun ottamatta on avattu.
+        Peli voi päättyä joko osumalla miinaan tai kun kaikki luukut miinoja lukuun 
+        ottamatta on avattu.
         """
         if self.row_count ** 2 - self.grid.klicked == self.mine_count and self.grid.mine_hit == False and self.won == False:
             self.won = True
-            self.won_time = str(pygame.time.get_ticks() // 1000)
+            self.won_time = str((pygame.time.get_ticks()-self.start_time) // 1000)
+            self.score_base.add_score(self.won_time)
+
 
     def check_events(self):
         """Tarkistetaan näppäimistön ja hiiren tapahtumat.
 
-        Jos suljetaan, ohjelman suoritus lopetataan. Välilyönnillä peli käynnistetään uudelleen ja hiiren 
-        klikkaukset lähetetään edelleen tutkittavaksi.
+        Jos suljetaan, ohjelman suoritus lopetataan. Välilyönnillä peli käynnistetään
+        uudelleen ja hiiren klikkaukset lähetetään edelleen tutkittavaksi.
         """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -76,7 +83,8 @@ class Game:
                     self.restart()
 
     def handle_mouse(self, button, position):
-        """Lähetetään painetun hiiren napin mukaan hiiren koordinaatit niitä käsitteleville metodeille.
+        """Lähetetään painetun hiiren napin mukaan hiiren koordinaatit niitä
+        käsitteleville metodeille.
 
         Args:
             button (int): painetun hiiren napin tunniste.
