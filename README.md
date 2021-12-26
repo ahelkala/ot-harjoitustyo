@@ -10,6 +10,8 @@ Tänne rakentuu pikkuhiljaa Miinaharavan kaltainen peli.
 
 [Käyttöohje](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 [Vaatimusmäärittely](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusm%C3%A4%C3%A4rittely.md)
 
 [Työaikakirjanpito](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
