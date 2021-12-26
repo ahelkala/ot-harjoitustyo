@@ -3,7 +3,7 @@
 .pytest_cache
 htmlcov
 __pycache__
-database.py
+score.db
 difficulty_view.py
 
 /laskarit/viikko2/unicafe/.pytest_cache
