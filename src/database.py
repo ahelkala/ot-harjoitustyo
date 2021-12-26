@@ -2,7 +2,11 @@ import sqlite3
 import getpass
 
 class DataBaseConnection:
+    """Luokka huolehtii tulosten lukemiseen ja tallentamiseen liittyvistä operaatioista.
+    """
     def __init__(self):
+        """Luodaan tietokanta tietojen tallennusta varten.
+        """
         self.fail = False
         try:
             self.db = sqlite3.connect("score.db")
@@ -14,6 +18,8 @@ class DataBaseConnection:
             self.create_tables()
 
     def create_tables(self):
+        """Luodaan tietokantaan taulu, jos sitä ei ole jo aimmin tehty.
+        """
         try:
             self.db.execute(self.create_score_table)
             score_list = self.get_score()
@@ -26,6 +32,11 @@ class DataBaseConnection:
             self.fail = True
 
     def add_score(self, score=999):
+        """Lisätään tietokantaan tulos.
+
+        Args:
+            score: tallennettavat pisteet.
+        """
         user = getpass.getuser()
         if len(user) > 10:
             user = user[:9]
@@ -33,10 +44,10 @@ class DataBaseConnection:
             self.db.execute("INSERT INTO Scores (name, points) VALUES (?,?)", [user, score])
 
     def get_score(self):
+        """Haetaan kannasta viisi parasta tulosta.
+
+        Returns:
+            Palauttaa listalla viisi parasta tulosta käyttäjä-pisteet -tuplena.
+        """
         top_score = self.db.execute("SELECT name, points FROM Scores ORDER BY points LIMIT 5").fetchall()
         return top_score
-
-if __name__ == "__main__":
-    kanta = DataBaseConnection()
-    kanta.add_score(60)
-    print(kanta.get_score())
