@@ -2,6 +2,9 @@
 
 Sovellus on mukaelma perinteisestä Miinaharava-pelistä. Peli on yksinpeli, jonka tarkoituksena on löytää miinakentälle kätketyt miinat mahdollisimman nopeasti. Peli päättyy tappioon, jos pelaaja osuu miinaan.
 
+### Release
+[Loppupalautus](https://github.com/ahelkala/ot-harjoitustyo/releases/tag/viikko7)
+
 ## Dokumentaatio
 
 [Käyttöohje](https://github.com/ahelkala/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
