@@ -33,3 +33,6 @@ Esimerkki käynnissä olevasta pelistä
 
 ## Pelin kulku
 Käyttäjä avaa ruutuja ja yrittää välttää osumasta pelialueelle sattumanvaraisiin ruutuihin asetettuja miinoja. Miinojen paikkoja voi päätellä pelialueella olevien numeeristen vihjeiden avulla. Numeron ollessa yksi, ruudun ympärillä sijaitsee yksi miina. Numeron ollessa kaksi, ruudun ympärillä on kaksi miinaa jne. Päättelyä voi helpottaa merkitsemällä miinoiksi epäilemänsä ruudut lipuilla.
+
+## Pelin päätös
+Peli päättyy, kun pelaaja on joko avannut kaikki peliruudut miinoja lukuun ottamatta tai osunut miinaan. Jälkimmäinen tilanne aiheuttaa tappion. Pelin päätyttyä voittoon tai tappioon, näytetään parhaimpien aikojen kunniataulukko, joka koostuu pelaajan käyttäjätunnuksesta sekä voittoajasta. 

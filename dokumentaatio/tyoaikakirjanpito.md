@@ -10,4 +10,6 @@
 | 7.12. | 5   | käyttöliittymän eriyttämine omaan luokkaan & pieniä muutoksia |
 | 12.12. | 5   | toimintojen lisäämistä |
 | 13.12. | 2   | testejä sekä dokumentointia |
-| yht   | 32h  | 
+| 20.12. | 3   | lisätty tietokanta |
+| 26.12. | 5   | testejä, dokumentaatiota sekä tulostaulua |
+| yht   | 40h  | 

@@ -9,7 +9,7 @@ class Game:
         pygame.init()
         self.block_size = 30
         self.row_count = game_area_size
-        self.mine_count = 20
+        self.mine_count = 40
         self.width, self.height = self.block_size * self.row_count, \
             self.block_size * self.row_count + 90
         self.game_screen = pygame.display.set_mode((self.width, self.height))
@@ -34,7 +34,7 @@ class Game:
     def loop(self):
         """Looppi, joka on käynnissä ohjelman suorituksen loppuun asti
 
-        Tämän kautta tarkitetaan tapahtumat, piirretään käyttöliittymä sekä pidetään kirjaa 
+        Tämän kautta tarkitetaan tapahtumat, piirretään käyttöliittymä sekä pidetään kirjaa
         onko peli ohi
         """
         self.won = False
@@ -58,14 +58,14 @@ class Game:
     def check_if_won(self):
         """Tarkistetaan onko peli ohi. Voitetetun pelin aika tallennetaan tietokantaan.
 
-        Peli voi päättyä joko osumalla miinaan tai kun kaikki luukut miinoja lukuun 
+        Peli voi päättyä joko osumalla miinaan tai kun kaikki luukut miinoja lukuun
         ottamatta on avattu.
         """
         if self.row_count ** 2 - self.grid.klicked == self.mine_count and self.grid.mine_hit == False and self.won == False:
             self.won = True
-            self.won_time = str((pygame.time.get_ticks()-self.start_time) // 1000)
+            self.won_time = str(
+                (pygame.time.get_ticks()-self.start_time) // 1000)
             self.score_base.add_score(self.won_time)
-
 
     def check_events(self):
         """Tarkistetaan näppäimistön ja hiiren tapahtumat.
