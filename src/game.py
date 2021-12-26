@@ -9,7 +9,7 @@ class Game:
         pygame.init()
         self.block_size = 30
         self.row_count = game_area_size
-        self.mine_count = 20
+        self.mine_count = 40
         self.width, self.height = self.block_size * self.row_count, \
             self.block_size * self.row_count + 90
         self.game_screen = pygame.display.set_mode((self.width, self.height))
